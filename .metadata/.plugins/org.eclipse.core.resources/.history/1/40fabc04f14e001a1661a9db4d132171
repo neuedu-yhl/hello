@@ -1,0 +1,10 @@
+package com.neusoft.test;
+
+public class Test6 {
+
+	public static int f(int x) {
+		return x%3;
+	}
+	
+	
+}

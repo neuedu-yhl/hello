@@ -1,0 +1,26 @@
+package com.neusoft.test;
+
+public class Test {
+
+	/**
+	 * 数组
+	 */
+	public static void main(String[] args) {
+		// 数组
+		// 一堆数据类型放在一块
+		int[] nums = {
+				1,2,3,4,5
+		};
+		int[] nums2 = new int[4];
+		
+		// "零"值包括：0(整型)、0.0(浮点型)、 \u0000(char)、false(boolean)、null(引用类型)
+		char c = '\u0000'; 
+		System.out.println(c);
+		// 长度固定 下标从0开始 连续 类型唯一
+		
+		
+		
+		
+		
+	}
+}

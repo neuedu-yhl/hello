@@ -1,0 +1,95 @@
+package com.neusoft.test;
+
+import java.util.Scanner;
+
+public class Homework_20200213 {
+	
+	//practice_1 数据类型转换
+	public static void outputchar(int x) {
+		// TODO Auto-generated method stub
+		System.out.println((char)x);
+	}
+	
+	public static void outputint(char c) {
+		// TODO Auto-generated method stub
+		System.out.println((int)c);
+	}
+	
+	//practice_2 方法
+	public static double f2_1(double x) {
+		double a=Math.pow(x, 2);
+		return a-2*x+4;
+	}
+	
+	//practice_3 Java 运算符
+	public static int remainder(int x) {
+		int y=3;
+		return x%3;
+	}
+	public static int plusplus(int x) {
+		return x++;
+	}
+	
+	//practice_4 三元运算符实现分页
+	public static int page() {
+		System.out.println("请输入总页数...");
+		Scanner scanner=new Scanner(System.in);
+		int total=scanner.nextInt();
+		//每页10条
+		int size=10;
+		int page= total%size==0 ?total/size:total/size+1;
+		scanner.close();
+		return page;
+	}
+	
+	//practice_5 分支流程控制-if-else
+	public static void score() {
+		System.out.println("请输入成绩...");
+		Scanner scanner5=new Scanner(System.in);
+		int scores=scanner5.nextInt();
+		if(scores<80 && scores>0) {
+			System.out.println("不及格");
+		}
+		else if(scores>=80 && scores<90){
+			System.out.println("良好");
+		}else if(scores>=90 && scores<100) {
+			System.out.println("优秀");
+		}else {
+			System.out.println("super man");
+		}
+		scanner5.close();
+	}
+	
+	//practice_6 循环控制-while
+	public static void loop(){
+		System.out.println("请输入一个数...");
+		Scanner scanner1=new Scanner(System.in);
+		int x=scanner1.nextInt();
+		while(x!=-1) {
+			System.out.println("您输入的数是:"+x);
+			System.out.println("请再输入一个数...");
+			Scanner scanner2=new Scanner(System.in);
+			x=scanner2.nextInt();
+			//scanner2.close();
+		}
+		scanner1.close();
+	}
+	
+	//main
+	public static void main(String []args) {
+		//run practice_1
+//		outputchar(65);
+//		outputint('中');
+		//run practice_2
+//		System.out.println(f2_1(2.0));
+		//run practice_3
+//		System.out.println(remainder(2));
+//		System.out.println(plusplus(2));
+		//run practice_4
+//		System.out.println(page());
+		//run practice_5
+		score();
+		//run practice_6
+//		loop();
+	}
+}

@@ -1,0 +1,35 @@
+package com.neusoft.test;
+
+public class Test3 {
+
+	/**
+	 * 任务:实现一次函数的计算 y=f(x)=3x+6 
+	 */
+
+	/**
+	 * int age
+	 * String name
+	 * char sex
+	 * 
+	 * 修饰符 返回值类型 方法名(参数列表){
+	 * 	  方法体
+	 * }
+	 */
+	//This method must return a result of type int
+	public static int f(int num) {
+		return 3*num+6;
+	}
+	
+	 public static void outputchar(int x) {
+		System.out.println((char)x);
+	 }
+	
+	 public static int i(char x) {
+	    return (int)x;
+	 }
+	
+	// 入口
+	public static void main(String[] args) {
+		System.out.println(-1%10);
+	}
+}

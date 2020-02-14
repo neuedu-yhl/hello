@@ -1,0 +1,16 @@
+package com.neusoft.test;
+
+import java.util.Scanner;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		//while—≠ª∑
+		Scanner scanner = new Scanner(System.in);
+		while(1==1) {
+			
+			
+			
+		}
+	}
+}

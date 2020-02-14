@@ -1,0 +1,12 @@
+package com.neusoft.test;
+
+public class Test {
+
+	/**
+	 * สýื้
+	 */
+	public static void main(String[] args) {
+		
+		
+	}
+}

@@ -1,0 +1,138 @@
+package com.neusoft.test;
+
+import java.util.Scanner;
+
+public class Test4 {
+
+	
+	// 模拟登录业务
+    // 需要用户名和密码
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+	    System.out.println("请输入数字（1-7）");
+	        String level = "";
+	        int day = scanner.nextInt();
+	        switch ( 7 - day  ) {
+	        case 6:
+	          level = "星期一";
+	          break;
+	        case 5:
+	          level = "星期二";
+	          break;
+	        case 4:
+	          level = "星期三";
+	          break;
+	        case 3:
+	          level = "星期四";
+	          break;
+	        case 2:
+	          level = "星期五";
+	          break;
+	        case 1:
+	          level = "星期六";
+	          break;
+	        case 0:
+	          level = "星期日";
+	          break;
+	        default:
+	          level = "输入有误";
+	        }
+	        System.out.println(level);
+	  }
+		
+		// 数据库中存放的用户名和密码
+//		String userName = "helloworld";
+//		String passWord = "123456";
+//		System.out.println("欢迎进入锤子官网");
+//		System.out.println("===========================================");
+//		System.out.println("请输入您的用户名:");
+//		Scanner scanner = new Scanner(System.in);
+//		String name = scanner.next();
+//		System.out.println("请输入您的密码:");
+//		String psw = scanner.next();
+//		// 判断用户名和密码是否正确
+//		if(userName.equals(name) && passWord.equals(psw)) {
+//			System.out.println("登录成功...");
+//		}else {
+//			System.out.println("用户名或密码有问题...");
+//		}
+		
+		
+		
+		
+		
+		
+//		int a = 5;
+//		System.out.println(a>=10);
+		
+		
+		
+		// 注释快捷键 Ctrl+/
+		// 三目运算符
+//		int age = 20;
+//		System.out.println(age>=18?"成年":"未成年");
+		
+		
+		
+		// 分页
+		//    2     10         5
+		//    3     11         5
+		// 页数  总数据条数 每页数据大小
+//		int total = 50;
+//		int pageSize = 5;
+//		int pages = total % pageSize == 0 ? total /pageSize : total/pageSize +1;
+//		System.out.println(pages);
+		
+		
+		
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("请输入一个数:");
+//		int num = scanner.nextInt();
+//		if(num > 0) {
+//			System.out.println("正整数");
+//		}else if(num < 0) {
+//			System.out.println("负整数");
+//		}else {
+//			System.out.println("0");
+//		}
+		
+		// 判断分数优良中差
+		
+		// 判断星期几
+		// 只允许输入1-7 七个整数
+		// 如果输入<1 或者 >7的数 输出 输入有误 退出程序
+		// 否则 输出对应的 日期  比如 1 ---> 星期一 ,2----> 星期二 
+		// 使用switch....case做
+		
+		
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("请输入你的分数:(0-100)");
+//		String level = "";
+//		int score = scanner.nextInt();
+//		//      byte shot int char String
+//		switch (score / 10) {
+//		case 10:
+//			level = "优秀";
+//			break;
+//			// 穿透
+//		case 9:
+//			level = "优秀";
+//			break;
+//		case 8:
+//			level = "良好";
+////			break;
+//		case 7:
+//			level = "中等";
+//			break;
+//		case 6:
+//			level = "及格";
+//			break;
+//		default:
+//			level = "不及格";
+//			break;
+//		}
+//		System.out.println("您的成绩等级为:"+level);
+	}
+}

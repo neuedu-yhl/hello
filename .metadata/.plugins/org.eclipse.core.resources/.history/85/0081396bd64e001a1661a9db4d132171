@@ -1,0 +1,12 @@
+package com.neusoft.test;
+
+public class Test {
+
+	/**
+	 * 数组
+	 */
+	public static void main(String[] args) {
+		// 数组
+		
+	}
+}

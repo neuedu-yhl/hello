@@ -1,0 +1,25 @@
+package com.neusoft.test;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// 画一个窗口
+		JFrame jFrame = new JFrame("jframe");
+		// 画div
+		JPanel jPanel = new JPanel();
+		// 画文字
+		JLabel jLabel = new JLabel("今天是周四");
+		// 往div添加文字
+		jPanel.add(jLabel);
+		// 把div放到窗口里
+		jFrame.setContentPane(jPanel);
+		// 设置整个窗口大小
+		jFrame.setSize(300, 200);
+		// 设置窗口可见
+		jFrame.setVisible(true);	
+	}
+}

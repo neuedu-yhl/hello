@@ -1,0 +1,30 @@
+package com.neusoft.test;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Test7 {
+
+	public static void main(String[] args) {
+		// java.util.Scanner
+        Scanner sc = new Scanner(System.in);
+        // 随机数
+        Random random = new Random();
+        
+        
+        // java.lang.*
+        System.out.println("输入成绩: ");
+        int n = sc.nextInt();
+        if (n < 60) {
+            System.out.println("不及格");
+        } else if (60 < n && n < 79) {
+            System.out.println("一般");
+        } else if (80 < n && n < 89) {
+            System.out.println("良好");
+        } else if (90 < n && n < 100) {
+            System.out.println("优秀");
+        } else if (n == 100) {
+            System.out.println("满分");
+        }
+    }
+}

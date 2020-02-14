@@ -1,0 +1,19 @@
+package com.neusoft.test;
+
+import java.util.Scanner;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		//while循环
+		Scanner scanner = new Scanner(System.in);
+		while(1==1) {
+			System.out.println("请输入一个整数:");
+			int nextInt = scanner.nextInt();
+			System.out.println("您输入的数字为:");
+			if(nextInt == -1) {
+				break;
+			}
+		}
+	}
+}

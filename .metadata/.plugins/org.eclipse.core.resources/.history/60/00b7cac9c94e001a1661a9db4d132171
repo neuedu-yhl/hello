@@ -1,0 +1,20 @@
+package com.neusoft.test;
+
+public class Test4 {
+
+	
+	// 模拟登录业务
+    // 需要用户名和密码
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

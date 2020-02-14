@@ -1,0 +1,21 @@
+package com.neusoft.test;
+
+public class Test {
+
+	/**
+	 * 数组
+	 */
+	public static void main(String[] args) {
+		// 数组
+		// 一堆数据类型放在一块
+		int[] nums = {
+				1,2,3,4,5
+		};
+		// 长度固定 下标从0开始
+		
+		
+		
+		
+		
+	}
+}

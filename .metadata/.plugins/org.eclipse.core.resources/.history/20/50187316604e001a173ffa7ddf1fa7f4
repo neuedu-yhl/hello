@@ -1,0 +1,142 @@
+package com.zhm.test;
+
+import java.util.Scanner;
+
+public class test {
+	
+		public static void main(String[] args) {
+//			System.out.println(change(48));
+//			System.out.println(changes('中'));
+//			System.out.println(jisuan(2));  
+
+//		}
+//		public static char change(int t) {
+//			char a=(char) t;
+//			return a;
+//		}
+//		public static int changes(char b) {
+//			int c=(char) b;
+//			return c;
+//		}
+//		public static int jisuan(int x) {
+//			int y=x*x-2*x+4;
+//			return y;
+//		}
+			//练习3
+			/*System.out.print("输入x：");
+			Scanner scanner=new Scanner(System.in);
+			int x1 ;
+			x1=scanner.nextInt();
+			int y1=x1%3;
+			int y2=x1++;
+			System.out.println("y1的值为："+y1);
+			System.out.println("y2的值为："+y2);*/
+			
+			//练习4
+			/*Scanner scanner=new Scanner(System.in);
+			int total=scanner.nextInt();
+			int size=10;
+			int page=total%size==0? total/size :total/size+1;
+			System.out.println(page);*/
+			
+//			练习5
+/*			System.out.print("输入成绩：");
+			Scanner scanner=new Scanner(System.in);
+			int sorce=scanner.nextInt();
+			if (sorce>100||sorce<0) {
+				System.out.println("super man");
+			}
+			else if (sorce>90&&sorce<=100) {
+				System.out.println("优秀");
+			}
+			else if (sorce>=80 && sorce<90) {
+				System.out.println("良好");
+			}
+			else {
+				System.out.println("不及格");
+			}
+			*/
+			
+//			练习6
+		/*	System.out.print("你输入的是 ");
+			Scanner scanner=new Scanner(System.in);
+			int number=scanner.nextInt();
+			while (number!=-1) {
+				System.out.print("你输入的是 "+number);
+				break;
+			}*/
+			
+//			练习7
+			System.out.print("输入第一个点的坐标：");
+
+//			}
+//			public static char change(int t) {
+//				char a=(char) t;
+//				return a;
+//			}
+//			public static int changes(char b) {
+//				int c=(char) b;
+//				return c;
+//			}
+//			public static int jisuan(int x) {
+//				int y=x*x-2*x+4;
+//				return y;
+//			}
+				//练习3
+				/*System.out.print("输入x：");
+				Scanner scanner=new Scanner(System.in);
+				int x1 ;
+				x1=scanner.nextInt();
+				int y1=x1%3;
+				int y2=x1++;
+				System.out.println("y1的值为："+y1);
+				System.out.println("y2的值为："+y2);*/
+				
+				//练习4
+				/*Scanner scanner=new Scanner(System.in);
+				int total=scanner.nextInt();
+				int size=10;
+				int page=total%size==0? total/size :total/size+1;
+				System.out.println(page);*/
+				
+//				练习5
+	/*			System.out.print("输入成绩：");
+				Scanner scanner=new Scanner(System.in);
+				int sorce=scanner.nextInt();
+				if (sorce>100||sorce<0) {
+					System.out.println("super man");
+				}
+				else if (sorce>90&&sorce<=100) {
+					System.out.println("优秀");
+				}
+				else if (sorce>=80 && sorce<90) {
+					System.out.println("良好");
+				}
+				else {
+					System.out.println("不及格");
+				}
+				*/
+				
+//				练习6
+			/*	System.out.print("你输入的是 ");
+				Scanner scanner=new Scanner(System.in);
+				int number=scanner.nextInt();
+				while (number!=-1) {
+					System.out.print("你输入的是 "+number);
+					break;
+				}*/
+				
+//				练习7
+				System.out.println("输入第一个点的坐标：");
+				Scanner scanner=new Scanner(System.in);
+				int x11=scanner.nextInt();
+				int y11=scanner.nextInt();
+			
+				System.out.println("输入第二个点的坐标：");
+				int x22=scanner.nextInt();
+				int y22=scanner.nextInt();
+				double distance=Math.sqrt(Math.pow(x22-x11, 2)+Math.pow(y22-y11, 2));
+				System.out.print("两点的距离为："+distance);
+			
+			}
+}	

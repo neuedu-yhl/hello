@@ -1,0 +1,13 @@
+package com.neuedu.test;
+
+import java.io.UnsupportedEncodingException;
+
+public class Test2 {
+	
+	public static void main(String[] args) throws UnsupportedEncodingException {
+		System.out.println("中".getBytes("UTF-8").length); //----> 6
+		System.out.println("中中".getBytes("UTF-8").length); //----> 9
+		System.out.println("中".getBytes("GBK").length); //----> 3
+		System.out.println("中中".getBytes("GBK").length); //----> 6
+	}
+}

@@ -1,0 +1,78 @@
+package com.neusoft.test;
+
+import java.util.Random;
+
+public class Test2 {
+
+	public static void main(String[] args) {
+		// 整型id
+		int id;
+		// 字符串类型 变量名为name
+		String name = "张三";
+		// The local variable name may not have been initialized
+		System.out.println(name);
+		
+		int age = 28;
+		if(age < 28) {
+			int score = 100;
+			System.out.println(score);
+		}
+		// score cannot be resolved to a variable
+//		System.out.println(score);
+		
+		// 数据类型
+		// 整型
+		// The literal 13241234856854 of type int is out of range 
+		long num = 13241234856854L;
+		
+		// 编码集:utf-8
+		// 拿空间换时间
+		// 几百MB  256GB
+		// 500MB  1.5GB
+		float num2 = 2.0F;
+		
+		// char
+		char c = 'a';
+		char d = '国';
+		char sex = '男';
+		char sex2 = '女';
+		
+		// ascII码表值
+		// 记住A a 0 的ascII值
+		char e = 97;
+		System.out.println(e);
+		
+		// unicode
+		char f = 20013;
+		System.out.println((int)f);
+		
+		
+		// 产生随机字符
+		// 验证码
+	    //  bcgh  jklh
+		// 随机生成100个0-57的整数
+		for(int i=0;i<100;i++) {
+			// 创建随机数的工具
+			Random random = new Random();
+			int nextInt = random.nextInt(26);
+			char val  = (char)('A'+nextInt);
+			System.out.println(val);
+		}
+		
+		
+		boolean meeting = true;
+		if(meeting) {
+			System.out.println("开会");
+		}else {
+			System.out.println("下课");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
