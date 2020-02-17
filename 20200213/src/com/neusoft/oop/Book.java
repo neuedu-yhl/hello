@@ -1,7 +1,5 @@
 package com.neusoft.oop;
 
-import java.util.Arrays;
-
 /**
  * µ±µ±Íø
  * @author Neuedu
