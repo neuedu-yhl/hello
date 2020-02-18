@@ -17,6 +17,8 @@ public class Client {
 	 * 添加游戏角色
 	 */
 	public void addGamePlayer() {
+		
+		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("请您添加对应的角色信息");
 		System.out.println("请输入游戏角色名:");
