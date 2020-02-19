@@ -14,4 +14,10 @@ public class SecCar extends BasicCar implements Action {
 		
 	}
 
+	@Override
+	public void readData() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

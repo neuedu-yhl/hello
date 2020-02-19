@@ -14,6 +14,12 @@ public class FirstPerson extends Person implements Action{
 		
 	}
 
+	@Override
+	public void readData() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 }

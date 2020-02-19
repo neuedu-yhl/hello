@@ -1,6 +1,6 @@
 package com.neusoft.interfacedemo;
 
-public interface Action {
+public interface Action extends ReadAction{
 
 	void go();
 	
