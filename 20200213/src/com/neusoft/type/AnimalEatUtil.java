@@ -2,16 +2,14 @@ package com.neusoft.type;
 
 public class AnimalEatUtil {
 
-	public static void autoEat(Animal animal) {
-		animal.eat();
+	public static void autoEat(Object object) {
+		if(object instanceof Animal2) {
+			Animal2 an = (Animal2)object;
+			an.eat();
+		}
 	}
-
-	
-	
 	public static void main(String[] args) {
-		Dog dog = new Dog();
-		Cat cat = new Cat();
-		autoEat(cat);
+//		Animal an = new Animal();
+//		autoEat(an);
 	}
-	
 }

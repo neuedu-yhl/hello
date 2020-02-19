@@ -1,6 +1,6 @@
 package com.neusoft.type;
 
-public class Dog extends Animal{
+public class Dog extends Animal2{
 
 	@Override
 	public void eat() {
