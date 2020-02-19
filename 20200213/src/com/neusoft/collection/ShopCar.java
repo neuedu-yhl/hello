@@ -15,6 +15,18 @@ public class ShopCar {
 	
 	HashMap<Integer,Product> carts  = new HashMap<>();
 	
+	{
+		carts.put(1, new Product(1, "oppo", "oppo.jpg", 1000.0, 10));
+		carts.put(2, new Product(2, "xiaomi", "oppo.jpg", 1000.0, 10));
+		carts.put(3, new Product(3, "huawei", "oppo.jpg", 1000.0, 10));
+		carts.put(4, new Product(4, "sanxing", "oppo.jpg", 1000.0, 10));
+		carts.put(5, new Product(5, "chuizi", "oppo.jpg", 1000.0, 10));
+		carts.put(6, new Product(6, "yijia", "oppo.jpg", 1000.0, 10));
+		carts.put(7, new Product(7, "vivo", "oppo.jpg", 1000.0, 10));
+		carts.put(8, new Product(8, "xiaolingtong", "oppo.jpg", 1000.0, 10));
+	}
+	
+	
 	// 添加商品的方法
 	public void addOneProduct() {
 		carts.put(1, new Product(1, "oppo", "oppo.jpg", 1000.0, 10));
@@ -26,6 +38,9 @@ public class ShopCar {
 		carts.put(7, new Product(7, "vivo", "oppo.jpg", 1000.0, 10));
 		carts.put(8, new Product(8, "xiaolingtong", "oppo.jpg", 1000.0, 10));
 	}
+	
+	
+	
 	
 	// 查询所有商品的方法
 	public void queryProduct() {
@@ -47,13 +62,21 @@ public class ShopCar {
 		System.out.println("修改后的map"+carts);
 	}
 	
+	public void test() {
+		int result = carts.size();
+		System.out.println(result);
+	}
+	
 	
 	
 	public static void main(String[] args) {
-		ShopCar shopCar = new ShopCar();
-		shopCar.addOneProduct();
+//		ShopCar shopCar = new ShopCar();
+//		shopCar.addOneProduct();
 //		shopCar.queryProduct();
 //		shopCar.removeProduct();
-		shopCar.updateProduct();
+//		shopCar.updateProduct();
+		new ShopCar().test();
+		
 	}
 }
+
