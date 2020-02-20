@@ -9,7 +9,6 @@ public class Client {
 
 	public static void main(String[] args) {
 		new Client().launchFrame();
-		
 	}
 	
 	public void queryStudent() {
@@ -74,6 +73,10 @@ public class Client {
 		System.out.println("学生信息:"+School.students);
 		studentInfoManager();
 	}
+	
+	
+	
+	
 	
 	public void addStudent() {
 		System.out.println("欢迎来到增加学生页面");
@@ -143,6 +146,97 @@ public class Client {
 		}
 	}
 
+	
+	public void addCourse() {
+		System.out.println("欢迎来到添加课程页面");
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("请输入课程ID");
+		int cId = scanner.nextInt();
+		System.out.println("请输入课程名");
+		String cName = scanner.next();
+		Course course = new Course(cId, cName, new ArrayList<Student>());
+		School.courses.add(course);
+		System.out.println("添加课程信息成功~");
+		courseInfoManager();
+	}
+	
+	
+	// 修改课程
+	public void updateCourse() {
+		//修改课程 
+		System.out.println("待开发...程序员休假了...");
+		courseInfoManager();
+	}
+	
+	
+	// 删除课程
+	public void deleteCourse() {
+		//删除课程 
+		System.out.println("待开发...程序员休假了...");
+		courseInfoManager();
+	}
+	
+	/**
+	 * 课程信息管理
+	 */
+	public void courseInfoManager() {
+		System.out.println("欢迎来到课程信息管理界面");
+		System.out.println("1.增加课程");
+		System.out.println("2.修改课程");
+		System.out.println("3.删除课程");
+		System.out.println("4.回到上一级");
+		System.out.println("请输入要操作的功能:(1-4)");
+		Scanner scanner = new Scanner(System.in);
+		int nextInt = scanner.nextInt();
+		switch (nextInt) {
+		case 1:
+			addCourse();
+			break;
+		case 2:
+			updateCourse();
+			break;
+		case 3:
+			deleteCourse();
+			break;
+		case 4:
+			launchFrame();
+			break;
+		default:
+			System.err.println("输入有误.请重新输入");
+			courseInfoManager();
+			break;
+		}
+	}
+	
+	// 查询学生选课情况
+	public void queryStudentChooseCourse() {
+		System.out.println("所有学生信息:");
+		for(Student s:School.students) {
+			System.out.print("学生ID:"+s.getsId()+",学生名字:"+s.getStuName());
+			System.out.println();
+		}
+		System.out.println("请输入要查询的学生ID:");
+		Scanner scanner = new Scanner(System.in);
+		int sId = scanner.nextInt();
+		List<Student> stus = School.students;
+		for(int i=0;i<stus.size();i++) {
+			if(stus.get(i).getsId() == sId) {
+				List<Course> courses = stus.get(i).getCourses();
+				if(courses.size()>0) {
+					System.out.print("id为"+sId+"的学生选课情况:");
+					for (Course course : courses) {
+						System.out.print("课程名:"+course.getcId());
+						System.out.println();
+					}
+				}
+			}
+		}
+		launchFrame();
+	}
+	
+	
+	
+	
 	public void launchFrame() {
 		System.out.println("欢迎来到xxx学生管理系统");
 		System.out.println("1.学生信息管理");
@@ -157,6 +251,12 @@ public class Client {
 		switch (nextInt) {
 		case 1:
 			studentInfoManager();
+			break;
+		case 2:
+			courseInfoManager();
+			break;
+		case 3:
+			queryStudentChooseCourse();
 			break;
 		default:
 			System.out.println("非法输入,请重新输入");
