@@ -227,32 +227,32 @@ public class Client {
 		}
 	}
 	
-	// 查询学生选课情况
-//	public void queryStudentChooseCourse() {
-//		System.out.println("所有学生信息:");
-//		for(Student s:School.students) {
-//			System.out.print("学生ID:"+s.getsId()+",学生名字:"+s.getStuName());
-//			System.out.println();
-//		}
-//		System.out.println("请输入要查询的学生ID:");
-//		Scanner scanner = new Scanner(System.in);
-//		int sId = scanner.nextInt();
-//		List<Student> stus = School.students;
-//		for(int i=0;i<stus.size();i++) {
-//			if(stus.get(i).getsId() == sId) {
-//				List<Course> courses = stus.get(i).getCourses();
-//				if(courses.size()>0) {
-//					System.out.print("id为"+sId+"的学生选课情况:");
-//					for (Course course : courses) {
-//						System.out.print("课程名:"+course.getcId());
-//						System.out.println();
-//					}
-//				}
-//			}
-//		}
-//		launchFrame();
-//	}
+	// 通過學號,查询学生选课情况
+	public void queryStudentChooseCourse() {
+		System.out.println("所有学生信息:");
+		for(Student s:School.students) {
+			System.out.print("学生ID:"+s.getsId()+",学生名字:"+s.getStuName());
+			System.out.println();
+		}
+		System.out.println("请输入要查询的学生ID:");
+		Scanner scanner = new Scanner(System.in);
+		int sId = scanner.nextInt();
+		Student queryStuByStuId = queryStuByStuId(sId);
+		List<Integer> getcId = queryStuByStuId.getcId();
+		System.out.println("id为sId的学生的选择了"+getcId+"课程");
+		launchFrame();
+	}
 	
+	// 通过课程号，打印当前课程下面学生信息
+	public void queryCourseStudentInfo() {
+		System.out.println("待开发...");
+		launchFrame();
+	}
+	// 添加选这门课程的学生
+	// 与添加课程雷同
+	
+	// 删除选择这门课程的学生 
+	// 与删除课程雷同
 	
 	
 	
@@ -275,7 +275,7 @@ public class Client {
 			courseInfoManager();
 			break;
 		case 3:
-//			queryStudentChooseCourse();
+			queryStudentChooseCourse();
 			break;
 		default:
 			System.out.println("非法输入,请重新输入");
