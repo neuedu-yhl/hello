@@ -1,4 +1,4 @@
-package com.neusoft.studentManager;
+package com.neusoft.studentManage2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,22 +90,16 @@ public class Client {
 		System.out.println("请输入学生的地址");
 		String sAddRess = scanner.next();
 		System.out.print("请添加选课信息编号(编号之间用-分隔):");
-		Student student = new Student(sId, sName, sSex.charAt(0), sAddRess, new ArrayList<Course>());
+		Student student = new Student(sId, sName, sSex.charAt(0), sAddRess, new ArrayList<Integer>());
+		// 提示  输出所有的课程号
 		List<Course> courses = School.courses;
 		for(Course c:courses) {
 			System.out.print("课程编号:"+c.getcId()+",课程名:"+c.getCourseName());
 		}
-		System.out.println();
-		String cNum = scanner.next();
-		// 50-51-52    学生添加选课信息            50-51-52  拿到对应的课程信息然后添加当前的学生
-		String[] split = cNum.split("-");
-		for(int i=0;i<courses.size();i++) {
-			for(int j=0;j<split.length;j++) {
-				if(courses.get(i).getcId() == Integer.parseInt(split[j])) {
-					// 把选择的课程信息添加学生的courses变量中
-					student.getCourses().add(courses.get(i));
-				}
-			}
+		String cId = scanner.next();
+		String[] split = cId.split("-");
+		for (String string : split) {
+			student.getcId().add(Integer.parseInt(string));
 		}
 		// 将学生信息添加到学校的学生集合中
 		School.students.add(student);
@@ -154,7 +148,7 @@ public class Client {
 		int cId = scanner.nextInt();
 		System.out.println("请输入课程名");
 		String cName = scanner.next();
-		Course course = new Course(cId, cName, new ArrayList<Student>());
+		Course course = new Course(cId, cName, new ArrayList<Integer>());
 		School.courses.add(course);
 		System.out.print("请添加选课学生编号(编号之间用-分隔):");
 		List<Student> students = School.students;
@@ -165,21 +159,26 @@ public class Client {
 		String sNum = scanner.next();
 		// 1-2-3-4    课程添加选课的学生信息
 		String[] split = sNum.split("-");
-		List<Student> newStudents = new ArrayList<Student>();
-		for(int i=0;i<students.size();i++) {
-			for(int j=0;j<split.length;j++) {
-				Student student = students.get(i);
-				if(student.getsId() == Integer.parseInt(split[j])) {
-					student.getCourses().add(course);
-					newStudents.add(student);
-				}
-			}
+		for (String string : split) {
+			// 课程中添加学生id
+			course.getsId().add(Integer.parseInt(string));
+			Student queryStuByStuId = queryStuByStuId(Integer.parseInt(string));
+			queryStuByStuId.getcId().add(course.getcId());
 		}
-		course.getStudents().addAll(newStudents);
 		System.out.println("添加课程信息成功~");
 		courseInfoManager();
 	}
 	
+	// 根据学生id查询学生信息的方法
+	public Student queryStuByStuId(Integer stuId) {
+		List<Student> stus = School.students;
+		for(int i=0;i<stus.size();i++) {
+			if(stus.get(i).getsId() == stuId) {
+				return stus.get(i);
+			}
+		}
+		return null;
+	}
 	
 	// 修改课程
 	public void updateCourse() {
@@ -229,30 +228,30 @@ public class Client {
 	}
 	
 	// 查询学生选课情况
-	public void queryStudentChooseCourse() {
-		System.out.println("所有学生信息:");
-		for(Student s:School.students) {
-			System.out.print("学生ID:"+s.getsId()+",学生名字:"+s.getStuName());
-			System.out.println();
-		}
-		System.out.println("请输入要查询的学生ID:");
-		Scanner scanner = new Scanner(System.in);
-		int sId = scanner.nextInt();
-		List<Student> stus = School.students;
-		for(int i=0;i<stus.size();i++) {
-			if(stus.get(i).getsId() == sId) {
-				List<Course> courses = stus.get(i).getCourses();
-				if(courses.size()>0) {
-					System.out.print("id为"+sId+"的学生选课情况:");
-					for (Course course : courses) {
-						System.out.print("课程名:"+course.getcId());
-						System.out.println();
-					}
-				}
-			}
-		}
-		launchFrame();
-	}
+//	public void queryStudentChooseCourse() {
+//		System.out.println("所有学生信息:");
+//		for(Student s:School.students) {
+//			System.out.print("学生ID:"+s.getsId()+",学生名字:"+s.getStuName());
+//			System.out.println();
+//		}
+//		System.out.println("请输入要查询的学生ID:");
+//		Scanner scanner = new Scanner(System.in);
+//		int sId = scanner.nextInt();
+//		List<Student> stus = School.students;
+//		for(int i=0;i<stus.size();i++) {
+//			if(stus.get(i).getsId() == sId) {
+//				List<Course> courses = stus.get(i).getCourses();
+//				if(courses.size()>0) {
+//					System.out.print("id为"+sId+"的学生选课情况:");
+//					for (Course course : courses) {
+//						System.out.print("课程名:"+course.getcId());
+//						System.out.println();
+//					}
+//				}
+//			}
+//		}
+//		launchFrame();
+//	}
 	
 	
 	
@@ -276,7 +275,7 @@ public class Client {
 			courseInfoManager();
 			break;
 		case 3:
-			queryStudentChooseCourse();
+//			queryStudentChooseCourse();
 			break;
 		default:
 			System.out.println("非法输入,请重新输入");
