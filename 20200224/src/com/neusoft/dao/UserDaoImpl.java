@@ -1,9 +1,12 @@
 package com.neusoft.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.neusoft.entity.User;
 import com.neusoft.util.DBUtils;
@@ -61,5 +64,32 @@ public class UserDaoImpl implements UserDao {
 			DBUtils.closeResource(null, prepareStatement, connection);
 		}
 		return false;
+	}
+
+	@Override
+	public List<User> queryAllUser() {
+		Connection connection = DBUtils.getConnection();
+		String sql = "SELECT * FROM user";
+		PreparedStatement prepareStatement = null;
+		ArrayList<User> arrayList = new ArrayList<User>();
+		try {
+			//  ‘§±‡“Îsql”Ôæ‰
+		   prepareStatement = connection.prepareStatement(sql);
+		    // ÷¥––sql
+		   ResultSet rs = prepareStatement.executeQuery();
+		   while(rs.next()) {
+			   int id = rs.getInt("id");
+			   String userName = rs.getString("username");
+			   String psw = rs.getString("password");
+			   Date date = rs.getDate("regdate");
+			   User user = new User(id, userName, psw, date);
+			   arrayList.add(user);
+		   }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.closeResource(null, prepareStatement, connection);
+		}
+		return arrayList;
 	}
 }
