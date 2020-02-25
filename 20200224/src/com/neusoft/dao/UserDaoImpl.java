@@ -50,6 +50,8 @@ public class UserDaoImpl implements UserDao {
 		   prepareStatement.setString(2, user.getPassWord());
 		    // 执行sql
 		   ResultSet rs = prepareStatement.executeQuery();
+		   // 输出结果集
+		   System.out.println("结果集:"+rs);
 		   if(rs.next()) {
 			   return true;
 		   }

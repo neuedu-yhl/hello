@@ -25,17 +25,26 @@ public class LoginServ extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 设置请求编码
+		req.setCharacterEncoding("utf-8");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		System.out.println(username);
+		System.out.println(password);
 		User user = new User(null, username, password, null);
 		boolean checkUserIsExists = userDao.checkUserIsExists(user);
+		System.out.println(checkUserIsExists);
 		if(checkUserIsExists == true) {
-			req.getRequestDispatcher("head.jsp").forward(req, resp);
+			// 转发
+			req.setAttribute("info", "登录成功");
+			req.getRequestDispatcher("WEB-INF/web.jsp").forward(req, resp);
 			return;
 		}
 		System.out.println("不存在这个账户");
 		// 往一个session放值
+		// Session 会话
 		req.getSession().setAttribute("info", "不存在此账户");
-		resp.sendRedirect("login.jsp");
+		// 重定向
+		resp.sendRedirect("error.jsp");
 	}
 }

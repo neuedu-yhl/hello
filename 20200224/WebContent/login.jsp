@@ -14,7 +14,7 @@
 <body>
 	<h1>注册成功！！！</h1>
 	<h2>登录页面</h2>
-	<form action="LoginServ">
+	<form action="LoginServ" method="post">
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">请输入用户名:</label>
 	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="username" name="username">
