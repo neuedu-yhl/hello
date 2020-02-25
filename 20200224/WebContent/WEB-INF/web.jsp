@@ -25,6 +25,7 @@
   			<th>用户名</th>
   			<th>用户密码</th>
   			<th>注册日期</th>
+  			<th>操作</th>
   		<thead>
   		<tbody>
   			<!-- EL表达式 -->
@@ -40,6 +41,7 @@
 	  				<td>${user.userName}</td>
 	  				<td>${user.passWord}</td>
 	  				<td>${user.regDate}</td>
+	  				<td><a href="DeleteServ?id=${user.id}"><button class="btn btn-primary">删除</button></a></td>
   				</tr>
   			</c:forEach>
   		</tbody>

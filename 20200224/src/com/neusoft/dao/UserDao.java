@@ -15,4 +15,7 @@ public interface UserDao {
 	// 查询所有用户
 	List<User> queryAllUser();
 	
+	// 删除用户
+	int deleteUserById(int id);
+	
 }

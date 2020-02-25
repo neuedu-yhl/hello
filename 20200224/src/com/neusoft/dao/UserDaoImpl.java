@@ -92,4 +92,25 @@ public class UserDaoImpl implements UserDao {
 		}
 		return arrayList;
 	}
+
+	@Override
+	public int deleteUserById(int id) {
+		Connection connection = DBUtils.getConnection();
+		String sql = "DELETE FROM user WHERE id = ?";
+		PreparedStatement prepareStatement = null;
+		try {
+			//  预编译sql语句
+		   prepareStatement = connection.prepareStatement(sql);
+		    // 给占位符赋值
+		   prepareStatement.setInt(1, id);
+		    // 执行sql
+		   int executeUpdate = prepareStatement.executeUpdate();
+		   return executeUpdate;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.closeResource(null, prepareStatement, connection);
+		}
+		return 0;
+	}
 }
