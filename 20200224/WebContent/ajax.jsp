@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,6 @@
 	<div id="divs">
 	</div>
 	<button>点击按钮发送请求</button>
-	
 </body>
 	<script type="text/javascript">
 		$("button").click(function(){
