@@ -18,4 +18,7 @@ public interface UserDao {
 	// 删除用户
 	int deleteUserById(int id);
 	
+	// 判断用户名是否存在
+	boolean checkUserNameIsExists(String userName);
+	
 }

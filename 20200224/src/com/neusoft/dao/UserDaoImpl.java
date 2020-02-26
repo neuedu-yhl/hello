@@ -113,4 +113,27 @@ public class UserDaoImpl implements UserDao {
 		}
 		return 0;
 	}
+
+	@Override
+	public boolean checkUserNameIsExists(String userName) {
+		Connection connection = DBUtils.getConnection();
+		String sql = "SELECT * FROM user WHERE username = ?";
+		PreparedStatement prepareStatement = null;
+		try {
+			//  预编译sql语句
+		   prepareStatement = connection.prepareStatement(sql);
+		    // 给占位符赋值
+		   prepareStatement.setString(1, userName);
+		    // 执行sql
+		   ResultSet rs = prepareStatement.executeQuery();
+		   if(rs.next()) {
+			   return true;
+		   }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.closeResource(null, prepareStatement, connection);
+		}
+		return false;
+	}
 }
