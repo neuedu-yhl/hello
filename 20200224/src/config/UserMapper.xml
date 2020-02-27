@@ -4,7 +4,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用，后面会讲 -->
 <mapper namespace="test">
-	<select id="selectAllUser" resultType="com.neusoft.entity.User">
+	<select id="selectAllUser" resultType="com.neusoft.entity.User" parameterType="int">
+		SELECT * FROM user WHERE id = #{id}
+	</select>
+	
+	<select id="selectUser" resultType="com.neusoft.entity.User">
 		SELECT * FROM user
 	</select>
+	<select id="selectUserByName" resultType="com.neusoft.entity.User" parameterType="String">
+		SELECT * FROM user WHERE username LIKE '${value}_'   
+	</select>
+	
+	<insert id="addOneUser" parameterType="com.neusoft.entity.User">
+		INSERT INTO user (username,password,regdate) VALUES (#{userName},#{passWord},NOW())
+	</insert>
+	
+	<update id="UpdateOneUser" parameterType="com.neusoft.entity.User">
+		UPDATE user SET username = #{userName},password = #{passWord}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int">
+		DELETE FROM user WHERE id = #{id}
+	</delete>
+	
+	
 </mapper>

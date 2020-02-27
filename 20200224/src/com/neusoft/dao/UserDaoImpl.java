@@ -1,14 +1,17 @@
 package com.neusoft.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import com.neusoft.entity.User;
+import com.neusoft.mybatis.test.MyBatisTest;
 import com.neusoft.util.DBUtils;
 
 /**
@@ -18,6 +21,19 @@ import com.neusoft.util.DBUtils;
  */
 public class UserDaoImpl implements UserDao {
 
+	private SqlSessionFactory ssf;
+	
+	public  UserDaoImpl() {
+		try {
+			ssf = MyBatisTest.getSqlSessionFac();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	@Override
 	public int addOneUser(User user) {
 		Connection connection = DBUtils.getConnection();
@@ -68,29 +84,32 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> queryAllUser() {
-		Connection connection = DBUtils.getConnection();
-		String sql = "SELECT * FROM user";
-		PreparedStatement prepareStatement = null;
-		ArrayList<User> arrayList = new ArrayList<User>();
-		try {
-			//  ‘§±‡“Îsql”Ôæ‰
-		   prepareStatement = connection.prepareStatement(sql);
-		    // ÷¥––sql
-		   ResultSet rs = prepareStatement.executeQuery();
-		   while(rs.next()) {
-			   int id = rs.getInt("id");
-			   String userName = rs.getString("username");
-			   String psw = rs.getString("password");
-			   Date date = rs.getDate("regdate");
-			   User user = new User(id, userName, psw, date);
-			   arrayList.add(user);
-		   }
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DBUtils.closeResource(null, prepareStatement, connection);
-		}
-		return arrayList;
+		SqlSession openSession = ssf.openSession();
+		List<User> users = openSession.selectList("selectAllUser");
+		return users;
+//		Connection connection = DBUtils.getConnection();
+//		String sql = "SELECT * FROM user";
+//		PreparedStatement prepareStatement = null;
+//		ArrayList<User> arrayList = new ArrayList<User>();
+//		try {
+//			//  ‘§±‡“Îsql”Ôæ‰
+//		   prepareStatement = connection.prepareStatement(sql);
+//		    // ÷¥––sql
+//		   ResultSet rs = prepareStatement.executeQuery();
+//		   while(rs.next()) {
+//			   int id = rs.getInt("id");
+//			   String userName = rs.getString("username");
+//			   String psw = rs.getString("password");
+//			   Date date = rs.getDate("regdate");
+//			   User user = new User(id, userName, psw, date);
+//			   arrayList.add(user);
+//		   }
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			DBUtils.closeResource(null, prepareStatement, connection);
+//		}
+//		return arrayList;
 	}
 
 	@Override
