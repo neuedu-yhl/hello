@@ -9,21 +9,30 @@ public class Student {
 	}
 	
 	
+	
+	
+
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", age=" + age + ", name=" + name + ", birthday=" + birthday + "]";
+		return "Student [id=" + id + ", age=" + age + ", name=" + name + ", birthDay=" + birthDay + "]";
 	}
 
 
 
-	public Student(String id, Integer age, String name, Date birthday) {
+
+
+
+	public Student(String id, Integer age, String name, Date birthDay) {
 		super();
 		this.id = id;
 		this.age = age;
 		this.name = name;
-		this.birthday = birthday;
+		this.birthDay = birthDay;
 	}
+
+
+
 
 
 
@@ -51,13 +60,16 @@ public class Student {
 		this.name = name;
 	}
 
-	public Date getBirthday() {
-		return birthday;
+	public Date getBirthDay() {
+		return birthDay;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
+
+
+
 
 
 
@@ -67,6 +79,6 @@ public class Student {
 	
 	private String name;
 	
-	private Date birthday;
+	private Date birthDay;
 	
 }
