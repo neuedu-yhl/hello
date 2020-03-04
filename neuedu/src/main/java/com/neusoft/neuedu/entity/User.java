@@ -1,6 +1,6 @@
 package com.neusoft.neuedu.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +17,20 @@ public class User {
 	
 	private String passWord;
 	
-	private Date regdate;
+	private String email;
 	
+	private String phone;
+	
+	private String question;
+	
+	private String answer;
+	
+	private byte role;
+	
+	private Timestamp create_time;
+	
+	private Timestamp update_time;
+	
+	private String ip;
+		
 }

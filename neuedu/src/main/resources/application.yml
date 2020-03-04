@@ -4,7 +4,7 @@ spring:
   type: com.alibaba.druid.pool.DruidDataSource
   druid: 
    driver-class-name: com.mysql.jdbc.Driver
-   url: jdbc:mysql://localhost:3306/personmanager?useUnicode=true&characterEncoding=utf-8
+   url: jdbc:mysql://localhost:3306/shopping?useUnicode=true&characterEncoding=utf-8
    username: root
    password: mysqladmin
    initial-size: 10
