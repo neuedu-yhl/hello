@@ -1,0 +1,15 @@
+spring: 
+ datasource: 
+  name: mysql_test
+  type: com.alibaba.druid.pool.DruidDataSource
+  druid: 
+   driver-class-name: com.mysql.jdbc.Driver
+   url: jdbc:mysql://localhost:3306/personmanager?useUnicode=true&characterEncoding=utf-8
+   username: root
+   password: mysqladmin
+   initial-size: 10
+   min-idle: 1
+   max-active: 20
+mybatis: 
+ mapper-location: classpath*:com/neusoft/neuedu/dao/*.xml
+ type-aliases-package: com.neusoft.neuedu.entity
