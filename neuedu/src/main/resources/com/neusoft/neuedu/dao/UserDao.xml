@@ -4,4 +4,10 @@
     <select id="queryUser" resultType="user" parameterType="string">
         SELECT * FROM neuedu_user WHERE username = #{username} AND password = #{psw}
     </select>
+    
+    <select id="queryAllUsers" resultType="user">
+    	SELECT * from neuedu_user
+    </select>
+    
+    
 </mapper>

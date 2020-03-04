@@ -13,3 +13,5 @@ spring:
 mybatis: 
  mapper-location: classpath*:com/neusoft/neuedu/dao/*.xml
  type-aliases-package: com.neusoft.neuedu.entity
+pagehelper: 
+ helper-dialect: mysql
