@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/xadmin.css">
+        <link rel="stylesheet" href="./lib/layui/css/layui.css">
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="./js/xadmin.js"></script>
         <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -55,9 +56,7 @@
                             <table class="layui-table layui-form">
                                 <thead>
                                   <tr>
-                                    <th>
-                                      <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
-                                    </th>
+                                   
                                     <th>ID</th>
                                     <th>用户名</th>
                                     <th>密码</th>
@@ -77,64 +76,92 @@
                                   
                                 </tbody>
                             </table>
-                            <script type="text/javascript">
-                            	$.ajax({
-                            		type:"get",
-                            		url:"http://localhost:8080/queryUserByPage.do",
-                            		dataType:"json",
-                            		success:function(response){
-                            			console.log(response.data.list);
-                            			var arrs = response.data.list;
-                            			for(var i=0;i<arrs.length;i++){
-                            				var tr = $("<tr></tr>");
-                                			tr.append("<td><input type='checkbox' name='id' value='1'></td>");
-                            				tr.append("<td>"+arrs[i].id+"</td>");
-                            				tr.append("<td>"+arrs[i].userName+"</td>");
-                            				tr.append("<td>"+arrs[i].passWord+"</td>");
-                            				tr.append("<td>"+arrs[i].email+"</td>");
-                            				tr.append("<td>"+arrs[i].phone+"</td>");
-                            				tr.append("<td>"+arrs[i].question+"</td>");
-                            				tr.append("<td>"+arrs[i].answer+"</td>");
-                            				if(arrs[i].role==0){
-                            					tr.append("<td>管理员</td>");
-                            				}else{
-                            					tr.append("<td>普通用户</td>");
-                            				}
-                            				tr.append("<td>"+arrs[i].create_time+"</td>");
-                            				tr.append("<td>"+arrs[i].update_time+"</td>");
-                            				if(arrs[i].ip == ""|| arrs[i].ip == null){
-                            					tr.append("<td>未检测到IP</td>");
-                            				}else{
-                            					tr.append("<td>"+arrs[i].ip+"</td>");
-                            				}
-                            				
-                            				tr.append("<td class='td-status'><span class='layui-btn layui-btn-normal layui-btn-mini'>已启用</span></td>");
-                            				tr.append("<td class='td-manage'><a title='编辑'  onclick='xadmin.open('编辑','member-edit.html',600,400)' href='javascript:;'><i class='layui-icon'>&#xe642;</i></a><a title='删除' onclick='member_del(this,'要删除的id')' href='javascript:;'><i class='layui-icon'>&#xe640;</i></a></td>")
-                            				$("#userInfos").append(tr);
-                            			}
-                            		}
-                            	})
-                            </script>
+                            
                         </div>
                         <div class="layui-card-body ">
                             <div class="page">
-                                <div>
-                                  <a class="prev" href="">&lt;&lt;</a>
+                                <div id="nav">
+                                  <!-- <a class="prev" href="">&lt;&lt;</a>
                                   <a class="num" href="">1</a>
                                   <span class="current">2</span>
                                   <a class="num" href="">3</a>
                                   <a class="num" href="">489</a>
-                                  <a class="next" href="">&gt;&gt;</a>
+                                  <a class="next" href="">&gt;&gt;</a> -->
                                 </div>
                             </div>
                         </div>
+                        
+                        <script type="text/javascript">
+                        		var page1 = 1;
+                        		var psize1 = 3;
+                            	function page(pn,ps){
+                            		/* page1 = pn; */
+                            		console.log("pn"+pn);
+                            		console.log("ps"+ps);
+                            		page1 = pn;
+                            		psize1 = ps;
+                            		console.log("page1"+page1);
+                            		console.log("psize1"+psize1);
+                            		$.ajax({
+                                		type:"get",
+                                		url:"http://localhost:8080/queryUserByPage.do",
+                                		data:{
+                                			"pageNum":pn,
+                                			"pageSize":ps
+                                		},
+                                		dataType:"json",
+                                		success:function(response){
+                                			console.log(response.data.list);
+                                			var arrs = response.data.list;
+                                			$("#userInfos").empty();	
+                                			// 分页数据
+                                			for(var i=0;i<arrs.length;i++){
+                                				var tr = $("<tr></tr>");
+                                    			
+                                    			tr.append("<td>"+arrs[i].id+"</td>");
+                                				tr.append("<td>"+arrs[i].userName+"</td>");
+                                				tr.append("<td>"+arrs[i].passWord+"</td>");
+                                				tr.append("<td>"+arrs[i].email+"</td>");
+                                				tr.append("<td>"+arrs[i].phone+"</td>");
+                                				tr.append("<td>"+arrs[i].question+"</td>");
+                                				tr.append("<td>"+arrs[i].answer+"</td>");
+                                				if(arrs[i].role==0){
+                                					tr.append("<td>管理员</td>");
+                                				}else{
+                                					tr.append("<td>普通用户</td>");
+                                				}
+                                				tr.append("<td>"+arrs[i].create_time+"</td>");
+                                				tr.append("<td>"+arrs[i].update_time+"</td>");
+                                				if(arrs[i].ip == ""|| arrs[i].ip == null){
+                                					tr.append("<td>未检测到IP</td>");
+                                				}else{
+                                					tr.append("<td>"+arrs[i].ip+"</td>");
+                                				}
+                                				
+                                				tr.append("<td class='td-status'><span class='layui-btn layui-btn-normal layui-btn-mini'>已启用</span></td>");
+                                				tr.append("<td class='td-manage'><a title='编辑'  onclick='xadmin.open('编辑','member-edit.html',600,400)' href='javascript:;'><i class='layui-icon'>&#xe642;</i></a><a title='删除' onclick='member_del(this,'要删除的id')' href='javascript:;'><i class='layui-icon'>&#xe640;</i></a></td>")
+                                				$("#userInfos").append(tr);	
+                                			}
+                                			// 分页导航栏
+                                			var navs = response.data.navigatepageNums;
+                                			$("#nav").empty();
+                                			$("#nav").append("<a class='prev' onclick='page("+(page1-1)+","+psize1+")'>&lt;&lt;</a>");
+                                			for(var i=0;i<navs.length;i++){
+                                				$("#nav").append("<a class='num'  onclick='page("+navs[i]+","+psize1+")'>"+navs[i]+"</a>");
+                                			}
+                                			$("#nav").append("<a class='next' onclick='page("+(page1+1)+","+psize1+")' >&gt;&gt;</a>");
+                                		}
+                                	})
+                            	}
+                                page(page1,psize1);
+                            </script>
                     </div>
                 </div>
             </div>
         </div> 
     </body>
     <script>
-      layui.use(['laydate','form'], function(){
+      /* layui.use(['laydate','form'], function(){
         var laydate = layui.laydate;
         var  form = layui.form;
 
@@ -161,7 +188,7 @@
         });
 
 
-      });
+      }); */
 
        /*用户-停用*/
       function member_stop(obj,id){
