@@ -1,6 +1,7 @@
 package com.neusoft.neuedu.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.github.pagehelper.PageInfo;
 import com.neusoft.neuedu.common.HigherResponse;
@@ -13,4 +14,6 @@ public interface UserService {
 	
 	HigherResponse<PageInfo<User>> queryUserByPage(Integer pageNum,Integer pageSize,HttpServletRequest req);
 	
+	
+	HigherResponse<User> getLoginUserInfo(HttpSession session);
 }

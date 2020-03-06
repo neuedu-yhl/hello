@@ -1,6 +1,7 @@
 package com.neusoft.neuedu.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +28,12 @@ public class UserCon {
 	@RequestMapping("/queryUserByPage.do")
 	public HigherResponse<PageInfo<User>> queryUserByPage(@RequestParam(required = true,defaultValue = "1")Integer pageNum,@RequestParam(required = true,defaultValue = "2")Integer pageSize,HttpServletRequest req){
 		return userService.queryUserByPage(pageNum, pageSize, req);
+	}
+	
+	
+	// 获取登录用户信息接口
+	@RequestMapping("/get_user_info.do")
+	public HigherResponse<User> getLoginUserInfo(HttpSession session){
+		return userService.getLoginUserInfo(session);
 	}
 }

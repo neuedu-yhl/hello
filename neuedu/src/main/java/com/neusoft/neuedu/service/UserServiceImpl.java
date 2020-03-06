@@ -3,6 +3,7 @@ package com.neusoft.neuedu.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,18 @@ public class UserServiceImpl implements UserService {
 		List<User> queryAllUsers = userDao.queryAllUsers();
 		PageInfo<User> pageInfo = new PageInfo<User>(queryAllUsers);
 		return HigherResponse.getSuccessRespon(pageInfo);
+	}
+
+	@Override
+	public HigherResponse<User> getLoginUserInfo(HttpSession session) {
+		Object attribute = session.getAttribute("user");
+		if(null == attribute) {
+			return HigherResponse.getFailedRespon("未登录,请重新登录");
+		}
+		if(attribute instanceof User) {
+			User user = (User)attribute;
+			return HigherResponse.getSuccessRespon(user);
+		}
+		return HigherResponse.getFailedRespon("服务器异常");
 	}
 }
